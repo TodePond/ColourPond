@@ -85,5 +85,5 @@ $$(".thing").forEach(thing => thing.on.click(() => {
 	const name = thing.textContent.as(LowerCase)
 	const Name = name[0].as(UpperCase) + name.slice(1)
 	const colour = Colour[Name]
-	navigator.clipboard.writeText(colour.toHex())
+	navigator.clipboard.writeText(colour.hex)
 }))
