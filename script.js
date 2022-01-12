@@ -48,7 +48,7 @@ const createColourThing = (name) => {
 		document.body.appendChild(div3)
 	}
 	
-	if (!colour.isLight) {
+	if (!colour.isBright) {
 		const style = `
 			background-color: ${colour};
 			color: ${Colour.White};
@@ -79,7 +79,6 @@ for (const name in Colour) {
 		createColourThing(name)
 	}
 }
-
 
 $$(".thing").forEach(thing => thing.on.click(() => {
 	const name = thing.textContent.as(LowerCase)
