@@ -29,22 +29,22 @@ const createColourThing = (name) => {
 		const style = `
 			background-color: ${colour};
 			color: ${Colour.Black};
-		`
-		const div = HTML `<div class="thing" style="${style}">${name}</div>`
+		`.d
+		const div = HTML(`<div class="thing" style="${style}">${name}</div>`)
 		document.body.appendChild(div)
 		
 		const style2 = `
 			color: ${colour};
 			background-color: ${Colour.Grey};
 		`
-		const div2 = HTML `<div class="thing" style="${style2}">${name}</div>`
+		const div2 = HTML(`<div class="thing" style="${style2}">${name}</div>`)
 		document.body.appendChild(div2)
 
 		const style3 = `
 			color: ${colour};
 			background-color: ${Colour.Black};
 		`
-		const div3 = HTML `<div class="thing" style="${style3}">${name}</div>`
+		const div3 = HTML(`<div class="thing" style="${style3}">${name}</div>`)
 		document.body.appendChild(div3)
 	}
 	
@@ -53,14 +53,14 @@ const createColourThing = (name) => {
 			background-color: ${colour};
 			color: ${Colour.White};
 		`
-		const div = HTML `<div class="thing" style="${style}">${name}</div>`
+		const div = HTML(`<div class="thing" style="${style}">${name}</div>`)
 		document.body.appendChild(div)
 		
 		const style3 = `
 			color: ${colour};
 			background-color: ${Colour.White};
 		`
-		const div3 = HTML `<div class="thing" style="${style3}">${name}</div>`
+		const div3 = HTML(`<div class="thing" style="${style3}">${name}</div>`)
 		document.body.appendChild(div3)
 	}
 	
@@ -71,7 +71,7 @@ const createColourThing = (name) => {
 	const diva = HTML `<div class="thing" style="${stylea}">${name}</div>`
 	document.body.appendChild(diva)*/
 
-	document.body.appendChild(HTML`<br>`)
+	document.body.appendChild(HTML(`<br>`))
 }
 
 for (const name in Colour) {
