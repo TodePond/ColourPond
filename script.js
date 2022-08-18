@@ -5,7 +5,7 @@ on.load(() => {
 	document.body.style["background-color"] = Colour.Black.toString()
 	document.body.style["user-select"] = "none"
 
-	const style = HTML `<style>
+	const style = HTML(`<style>
 		.thing {
 			font-family: Rosario;
 			font-size: 25px;
@@ -16,7 +16,7 @@ on.load(() => {
 			cursor: pointer;
 			user-select: none;
 		}
-	</style>`
+	</style>`)
 
 	document.head.appendChild(style)
 })
@@ -29,7 +29,7 @@ const createColourThing = (name) => {
 		const style = `
 			background-color: ${colour};
 			color: ${Colour.Black};
-		`.d
+		`
 		const div = HTML(`<div class="thing" style="${style}">${name}</div>`)
 		document.body.appendChild(div)
 		
