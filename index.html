@@ -1,15 +1,51 @@
-<script src="https://deno.land/x/habitat/build/habitat-embed.js"></script>
-<style>
+<script src="libraries/habitat-embed.js"></script>
+<script>
 
-	@font-face {
-		font-family: UbuntuMono;
-		src: url("fonts/UbuntuMono-R.ttf")
-	}
-	
-	@font-face {
-		font-family: Rosario;
-		src: url("fonts/Rosario-Regular.ttf")
-	}
-	
-</style>
-<body><script src="script.js"></script></body>
+	Habitat.registerEverything()
+
+	const canvas = document.createElement("canvas")
+	const context = canvas.getContext("2d", {willReadFrequently: true})
+
+	on("load", () => {
+		document.body.style["margin"] = 0
+		canvas.width = innerWidth
+		canvas.height = innerHeight
+		canvas.style["width"] = innerWidth
+		canvas.style["height"] = innerHeight
+
+		document.body.appendChild(canvas)
+		context.fillStyle = BLACK
+		context.fillRect(0, 0, canvas.width, canvas.height)
+
+		const size = 100
+		const margin = 10
+		let x = margin
+		let y = margin
+		let i = 0
+		for (const colour of COLOURS) {
+			console.log(colour)
+			showColour(colour)
+			if (colour === BLACK) continue
+			context.fillStyle = colour
+			context.fillRect(x, y, size, size)
+			x += size + margin
+			if (i === 3 || x + size + margin > innerWidth) {
+				x = margin
+				y += size + margin
+			}
+			i++
+		}
+	})
+
+	on("pointerdown", (e) => {
+		const imageData = context.getImageData(e.clientX, e.clientY, 1, 1)
+		const pixel = imageData.data
+		const colour = new Colour(...pixel)
+		
+		const type = "text/plain"
+		const blob = new Blob([colour.toString()], {type})
+		const data = [new ClipboardItem({ [type]: blob })]
+		navigator.clipboard.write(data)
+	})
+
+</script>
